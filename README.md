@@ -24,6 +24,31 @@ After you click the `Deploy` button above, you'll want to have standalone copy o
 
 That's it! Changes made in `./src` will be reflected in your app. Follow the on-screen instructions to login and create your first admin user. Then check out [Production](#production) once you're ready to build and serve your app, and [Deployment](#deployment) when you're ready to go live.
 
+### Seeding data
+
+This project includes a seeding script to populate sample content used by the frontend:
+
+- Uploads a sample image from `src/seed/Media/coin logo2.png` to the `media` collection
+- Creates/updates a `pages` document with slug `landing-page` containing the Hero and Content blocks
+- Clears existing `pages` and `media` before seeding to ensure a clean slate
+
+Run the seeder:
+
+```powershell
+npm run seed
+```
+
+Requirements:
+
+- Ensure `.env` contains valid `DATABASE_URI` (or `MONGODB_URI`) and `PAYLOAD_SECRET`.
+- The sample media file path must exist: `src/seed/Media/coin logo2.png`.
+
+### Admin access
+
+- Open the Payload Admin at: http://localhost:3000/admin
+- Sign in (or follow the prompt to create the first admin user).
+- Use the CMS tools in the Admin UI to manage content (pages, media, users).
+
 #### Docker (Optional)
 
 If you prefer to use Docker for local development instead of a local MongoDB instance, the provided docker-compose.yml file can be used.
